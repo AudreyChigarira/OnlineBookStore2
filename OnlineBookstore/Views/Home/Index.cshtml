@@ -1,0 +1,19 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+@model OnlineBookstore.Models.ViewModels.ProjectListViewModel
+
+<div class="container py-5">
+    @foreach (var x in Model.Books)
+    {
+        <partial name="BookstoreSummary" model="x" />
+    }
+    <hr class="my-4"/>
+    <div class="mx-auto text-center">
+        <div page-model="@Model.PagingInfo" page-action="Index" page-classes-enabled="true" page-class="btn"
+             page-class-normal="btn-outline-dark"
+             page-class-selected="btn-warning" page-url-category="@Model.CurrentBook"
+             class="btn-group pull-right m-1"></div>
+    </div>
+</div>
